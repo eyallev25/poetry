@@ -6,7 +6,7 @@ authors = ["Your Name <you@example.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-demo_python = {path = "/Users/eyallev/git/demo-python" }
+demo_python = {git = "ssh://git@github.com/eyallev25/demo-python.git", branch = "main"}
 boto3 = "^1.20.24"
 requests = "^2.26.0"
 pyotp = "^2.6.0"
