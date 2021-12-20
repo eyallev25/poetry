@@ -12,6 +12,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
+                sh 'python3 poetey/onboard.py'
             }
         }
         stage('Deploy') {
