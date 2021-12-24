@@ -21,7 +21,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                sh 'test.sh'
+                sh './test.sh'
             }
         }
     }
