@@ -118,7 +118,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
 name = "demo-python"
-version = "0.3.0"
+version = "0.4.0"
 description = ""
 category = "main"
 optional = false
@@ -128,7 +128,6 @@ develop = false
 [package.dependencies]
 boto3 = "^1.20.26"
 elasticsearch = "^7.16.1"
-kobura = {git = "ssh://git@bitbucket.org/cyberarkhexagon/isf-shared.git", branch = "master"}
 requests = "^2.26.0"
 requests-aws4auth = "^1.1.1"
 
@@ -136,7 +135,7 @@ requests-aws4auth = "^1.1.1"
 type = "git"
 url = "ssh://git@github.com/eyallev25/demo-python.git"
 reference = "main"
-resolved_reference = "7880db0cce0b85c6ecc4f115ca51bf61a1749e0e"
+resolved_reference = "541d34aecaa491b7ec7dcefce574797c4f41ca2d"
 
 [[package]]
 name = "elasticsearch"
@@ -184,21 +183,6 @@ description = "JSON Matching Expressions"
 category = "main"
 optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
-
-[[package]]
-name = "kobura"
-version = "1.0"
-description = "Test"
-category = "main"
-optional = false
-python-versions = "*"
-develop = false
-
-[package.source]
-type = "git"
-url = "ssh://git@bitbucket.org/cyberarkhexagon/isf-shared.git"
-reference = "master"
-resolved_reference = "8502370be2aac08932abd0dceee2c2718946dcf5"
 
 [[package]]
 name = "mccabe"
@@ -490,7 +474,6 @@ jmespath = [
     {file = "jmespath-0.10.0-py2.py3-none-any.whl", hash = "sha256:cdf6525904cc597730141d61b36f2e4b8ecc257c420fa2f4549bac2c2d0cb72f"},
     {file = "jmespath-0.10.0.tar.gz", hash = "sha256:b85d0567b8666149a93172712e68920734333c0ce7e89b78b3e987f71e5ed4f9"},
 ]
-kobura = []
 mccabe = [
     {file = "mccabe-0.6.1-py2.py3-none-any.whl", hash = "sha256:ab8a6258860da4b6677da4bd2fe5dc2c659cff31b3ee4f7f5d64e79735b80d42"},
     {file = "mccabe-0.6.1.tar.gz", hash = "sha256:dd8d182285a0fe56bace7f45b5e7d1a6ebcbf524e8f3bd87eb0f125271b8831f"},
