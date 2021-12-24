@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-python3 -m demo_python
+/root/.poetry/bin/poetry run python3 -m demo_python
