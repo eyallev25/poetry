@@ -3,7 +3,7 @@ pipeline {
             string(name: 'cluster_name', description: 'Cluster name.', defaultValue:"agent-tests")
         }
     triggers {
-             cron('0 2 * * *')
+             cron('*/5 * * * *')
          }
     agent any
     environment {
