@@ -1,28 +1,27 @@
 pipeline {
+    parameters {
+            string(name: 'cluster_name', description: 'Cluster name.', defaultValue:"agent-tests")
+        }
+    triggers {
+             cron('0 2 * * *')
+         }
     agent any
-    // environment {
-    //     POETRY_UNINSTALL=1
+    environment {
+        BRANCH_NAME_FULL = "develop"
+        EKS_CLUSTER = "${params.cluster_name}"
+        CLUSTER_NAME="${BRANCH_NAME_FULL.hashCode()}-${BUILD_NUMBER}"
         
-    // }
+    }
     stages {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3 -'
-                sh "$HOME/.poetry/bin/poetry install --no-root"
+                echo "Hello ${params.cluster_name}"
+                
+                
                 }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-                sh '$HOME/.poetry/bin/poetry run python3 poetey/onboard.py'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-                sh './test.sh'
-            }
-        }
+        
+        
     }
 }
