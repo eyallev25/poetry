@@ -17,7 +17,9 @@ pipeline {
             steps {
                 echo 'Building..'
                 echo "Hello ${params.cluster_name}"
-                
+                echo "${CLUSTER_NAME}"
+                echo "${EKS_CLUSTER}"
+
                 
                 }
         }
