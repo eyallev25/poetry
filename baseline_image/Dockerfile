@@ -11,9 +11,7 @@ COPY poetry.toml /app/
 COPY pyproject.toml /app/
 
 # install tests deps
-RUN --mount=type=ssh,id=bitbucket mkdir -p ~/.ssh \
-    && ssh-keyscan bitbucket.org >> ~/.ssh/known_hosts \
-    && poetry install
+RUN poetry install
 
 COPY baseline_image /app/baseline_image
 

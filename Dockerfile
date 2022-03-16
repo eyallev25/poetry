@@ -16,9 +16,7 @@ RUN mkdir outputs
 WORKDIR /anun-tracer-benchmark/tests
 
 # install tests deps
-RUN --mount=type=ssh,id=bitbucket mkdir -p ~/.ssh \
-    && ssh-keyscan bitbucket.org >> ~/.ssh/known_hosts \
-    && poetry install
+RUN poetry install
 
 # change working directory to the scripts dir
 WORKDIR /anun-tracer-benchmark/scripts
