@@ -67,7 +67,7 @@ pipeline {
     post {
         always {
             
-            archiveArtifacts artifacts: "outputs/tracer_run.csv"
+            archiveArtifacts artifacts: "outputs/baseline_run.csv"
             archiveArtifacts artifacts: "outputs/*.log"
             
             cleanWs()
