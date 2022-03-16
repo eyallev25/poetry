@@ -9,7 +9,7 @@ def getBranchNameClean() {
 
 pipeline {
 
-    agent { label 'any' }
+    agent any
     parameters {
             choice(name: 'type', choices: ['Baseline', 'Benchmark'], description: "")
         }
