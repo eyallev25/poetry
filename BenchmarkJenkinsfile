@@ -44,7 +44,6 @@ pipeline {
             steps {
                 script {
                     sh "${WORKSPACE}/baseline_image/build.sh"
-                    sh "${WORKSPACE}/tracer_image/build.sh"
                 }
             }
         }
@@ -69,7 +68,6 @@ pipeline {
         always {
             
             archiveArtifacts artifacts: "outputs/tracer_run.csv"
-            archiveArtifacts artifacts: "outputs/baseline_run.csv"
             archiveArtifacts artifacts: "outputs/*.log"
             
             cleanWs()
