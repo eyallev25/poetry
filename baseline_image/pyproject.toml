@@ -1,14 +1,14 @@
 [tool.poetry]
-name = "anun-tracer-benchmark"
-version = "0.1.0"
+name = "baseline_image"
+version = "0.0.1"
 description = ""
-authors = ["Your Name <you@example.com>"]
+authors = ["cyberarklabs"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
 
-[tool.poetry.dev-dependencies]
-pytest = "^5.2"
+[tool.poetry.scripts]
+baseline_test = 'baseline_image.benchmark_test.invoke_events:invoke_events'
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
