@@ -9,7 +9,7 @@ def getBranchNameClean() {
 
 pipeline {
 
-    agent { label 'ec2-ubuntu' }
+    agent { label 'any' }
     parameters {
             choice(name: 'type', choices: ['Baseline', 'Benchmark'], description: "")
         }
