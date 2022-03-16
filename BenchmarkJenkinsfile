@@ -69,8 +69,8 @@ pipeline {
             
             junit allowEmptyResults: true, testResults: "outputs/test_baseline_container-report.xml"
             
-            cleanWs()
-            deleteDir()
+            // cleanWs()
+            // deleteDir()
         }
 
     }
