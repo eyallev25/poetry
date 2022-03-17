@@ -23,8 +23,8 @@ pipeline {
         BRANCH_NAME_CLEAN = getBranchNameClean()
         
         TEST_IMAGE_NAME="anun/tracer-benchmark"
-        PROJECT_DIR="/anun-tracer-benchmark/tests"
-        OUTPUT_DIR="/anun-tracer-benchmark/outputs"
+        PROJECT_DIR="${WORKSPACE}/tests"
+        OUTPUT_DIR="${WORKSPACE}/outputs"
         LOCAL_OUTPUT_DIR="${WORKSPACE}/outputs"
         PROJECT_NAME = "tracer-benchmark"
         METRICS_BUCKET_NAME="tracer-benchmark-results"
@@ -38,15 +38,7 @@ pipeline {
             steps {
                 script {
                     sh 'env'
-                    sh "docker run  \
-                            -v ${LOCAL_OUTPUT_DIR}:${OUTPUT_DIR} \
-                            -v /var/run/docker.sock:/var/run/docker.sock \
-                            -e OUTPUT_DIR \
-                            -e PROJECT_DIR \
-                            -e BUILD_NUMBER \
-                            -e BRANCH_NAME_CLEAN \
-                            -e METRICS_BUCKET_NAME \
-                            ${TEST_IMAGE_NAME} ./run_test.sh test_baseline_container"
+                    sh "${WORKSPACE}/scripts/run_test.sh test_baseline_container"
                 }
             }
         }
