@@ -23,8 +23,8 @@ pipeline {
         BRANCH_NAME_CLEAN = getBranchNameClean()
         
         TEST_IMAGE_NAME="anun/tracer-benchmark"
-        PROJECT_DIR="/anun-tracer-benchmark/tests"
-        OUTPUT_DIR="/anun-tracer-benchmark/outputs"
+        PROJECT_DIR="${WORKSPACE}/tests"
+        OUTPUT_DIR="${WORKSPACE}/outputs"
         LOCAL_OUTPUT_DIR="${WORKSPACE}/outputs"
         PROJECT_NAME = "tracer-benchmark"
         METRICS_BUCKET_NAME="tracer-benchmark-results"
@@ -33,17 +33,11 @@ pipeline {
         timeout(30)
     }
     stages {
-        stage ('Prepare') {
-            steps {
+        stage ('prepare') {
+        steps {
                 script {
-                    sh "${WORKSPACE}/build.sh"
-                }
-            }
-        }
-        stage ('Build Test Images') {
-            steps {
-                script {
-                    sh "${WORKSPACE}/baseline_image/build.sh"
+                    
+                    sh "cd tests && poetry install && cd .."
                 }
             }
         }
@@ -51,15 +45,8 @@ pipeline {
         stage ('Run Baseline Container') {
             steps {
                 script {
-                    sh "docker run  \
-                            -v ${LOCAL_OUTPUT_DIR}:${OUTPUT_DIR} \
-                            -v /var/run/docker.sock:/var/run/docker.sock \
-                            -e OUTPUT_DIR \
-                            -e PROJECT_DIR \
-                            -e BUILD_NUMBER \
-                            -e BRANCH_NAME_CLEAN \
-                            -e METRICS_BUCKET_NAME \
-                            ${TEST_IMAGE_NAME}:${BRANCH_NAME_CLEAN} ./run_test.sh test_baseline_container"
+                    sh 'env'
+                    sh "${WORKSPACE}/scripts/run_test.sh test_baseline_container"
                 }
             }
         }
