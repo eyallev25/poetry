@@ -14,7 +14,7 @@ logging.basicConfig(format="[%(levelname)s] %(message)s", level=logging.INFO)
 
 IMAGE_NAME = "anun/baseline_image:0.0.1"
 LOG_FILE_NAME = "baseline_run.csv"
-TIMEOUT = 300
+TIMEOUT = 20
 
 
 def test_tracer_container():
@@ -30,5 +30,7 @@ def test_tracer_container():
         if mem_usage or cpu_usage is not None:
             container_response.add_metrics(mem_usage, cpu_usage)
 
+    container.stop()
     write_csv_file(LOG_FILE_NAME, container_response)
+    
     # put_logs_on_results_bucket(LOG_FILE_NAME)
