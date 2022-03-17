@@ -15,4 +15,5 @@ RUN poetry install
 
 COPY baseline_image /app/baseline_image
 
-ENTRYPOINT ["poetry", "run", "baseline_test"]
+ENTRYPOINT ["tail"]
+CMD ["-f","/dev/null"]
