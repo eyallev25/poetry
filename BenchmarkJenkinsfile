@@ -33,12 +33,15 @@ pipeline {
         timeout(30)
     }
     stages {
+        stage ('prepare') {
         steps {
                 script {
                     
                     sh "cd tests && poetry install && cd .."
                 }
             }
+        }
+        
         stage ('Run Baseline Container') {
             steps {
                 script {
