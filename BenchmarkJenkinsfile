@@ -23,8 +23,8 @@ pipeline {
         BRANCH_NAME_CLEAN = getBranchNameClean()
         
         TEST_IMAGE_NAME="anun/tracer-benchmark"
-        PROJECT_DIR="/con-agent-tests/tests"
-        OUTPUT_DIR="/con-agent-tests/outputs"
+        PROJECT_DIR="/anun-tracer-benchmark/tests"
+        OUTPUT_DIR="/anun-tracer-benchmark/outputs"
         LOCAL_OUTPUT_DIR="${WORKSPACE}/outputs"
         PROJECT_NAME = "tracer-benchmark"
         METRICS_BUCKET_NAME="tracer-benchmark-results"
