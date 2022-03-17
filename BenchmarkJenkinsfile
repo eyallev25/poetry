@@ -41,6 +41,13 @@ pipeline {
                 }
             }
         }
+        stage ('Build Test Images') {
+            steps {
+                script {
+                    sh "${WORKSPACE}/baseline_image/build.sh"
+                }
+            }
+        }
         
        
         stage ('Run Baseline Container') {
